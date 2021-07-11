@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 html,
 body {
-  background-color:white;
-  color:black;
-  font-family: 'Roboto', sans-serif;
+  background-color: white;
+  color: black;
+  font-family: "Roboto", sans-serif;
   line-height: 1.62;
   padding: 16px 0;
 }
@@ -15,10 +15,10 @@ body {
   margin: 10px auto;
 }
 
-button{
+button {
   outline: none;
-  border:none;
-  background:transparent;
+  border: none;
+  background: transparent;
 }
 
 .playlist {
@@ -26,10 +26,10 @@ button{
   flex-direction: column;
 }
 
-.playlist .info{
-  display:flex;
-  flex-direction:row;
-  align-items:center;
+.playlist .info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -37,92 +37,95 @@ button{
   font-size: 24px;
 }
 
-.controls{
-  display:flex;
+.controls {
+  display: flex;
   flex-direction: row;
-  align-items:center;
+  align-items: center;
 }
 
 .controls .buttons {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  width:100px;
+  width: 100px;
   margin-left: 50px;
-  
-
 }
 
-.btn{
-  cursor:pointer;
-  color:black;
-  font-size:36px;
+.btn {
+  cursor: pointer;
+  color: black;
+  font-size: 36px;
 }
 
-.btn:active{
+.btn:active {
   transform: translateY(1px);
 }
 
-ul.tracks{
-  display:flex;
+ul.tracks {
+  display: flex;
   flex-direction: column;
   list-style-type: none;
-  padding:0;
+  padding: 0;
 }
 
-.song{
-  width:100%;
-  display:flex;
+.song {
+  width: 100%;
+  display: flex;
   padding: 15px 20px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .song:hover {
-  background: rgba(0.0.0.0.1);
+  background: rgba(0.0.0.1);
 }
 
-.song:active{
+.song:active {
   transform: translateY(1px);
 }
 
-.song .title{
-  font-size:20px;
-  display:flex;
-  flex-direction:column;
-  margin:0;
+.song .title {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
 }
 
-.song .position{
+.song .position {
   font-size: 20px;
   margin-right: 15px;
 }
 
-.song .title .movie{
+.song .title .movie {
   font-size: 14px;
   color: black;
 }
 
-.song .duration{
-  margin-left:auto;
+.song .duration {
+  margin-left: auto;
 }
 
-.button-play-pause{
+.button-play-pause {
   margin: 0 30px;
 }
 
-.button-play-pause span{
+.button-play-pause span {
   display: block;
   box-sizing: border-box;
-  width:0;
-  height:75px;
+  width: 0;
+  height: 75px;
   border-color: transparent transparent transparent black;
-  cursor:pointer;
+  cursor: pointer;
   border-style: double;
-  border-width:0 0 0 60px;
+  border-width: 0 0 0 60px;
   transition: 100ms all ease;
 }
 
-.button-play-pause span.paused{
-  border-style:solid;
+.button-play-pause span.paused {
+  border-style: solid;
   border-width: 37px 0 37px 60px;
+}
+
+.current-song {
+  margin-left: auto;
+  color: black;
 }

@@ -1,4 +1,3 @@
-import { useState } from "react"
 import './App.css';
 import Playlist from './components/Playlist';
 const data = {
@@ -38,9 +37,10 @@ const data = {
   ]
 }
 
-function App() {
+function App({ user ="Poot" }) {
   return (
     <div className="App">
+      <h1>{user}'s Playlist </h1>
       <Playlist playlist={data}/>
     </div>
   );

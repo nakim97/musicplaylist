@@ -3,6 +3,7 @@ import Track from "./Track"
 
 export default function Playlist(props){
     const [status, setStatus ] = useState("Paused...")
+    const [currentSongIdx, setCurrentSongIdx] = useState(0)
 
     const handleOnPlayPauseClick = () => {
         if (status === "Paused..."){
@@ -11,6 +12,8 @@ export default function Playlist(props){
             setStatus("Paused...")
         }
     }
+
+    const activeTrack = Boolean(currentSongIdx) || currentSongIdx === 0 ? props.playlist.songs[currentSongIdx] : null
     return (
         <div className="playlist">
             <div className="info">
@@ -29,6 +32,16 @@ export default function Playlist(props){
                         <span className={status === "Paused..." ? "paused" : "playing"} onClick={handleOnPlayPauseClick}></span>
                     </div>
                     <button className="btn">&rarr;</button>
+                </div>
+
+                <div className="current-song">
+                    <span>
+                       {activeTrack ? (
+                           <>
+                            {currentSongIdx +1}. {activeTrack.songName}
+                            </>
+                       ) : null}
+                    </span>
                 </div>
             </div>
 
