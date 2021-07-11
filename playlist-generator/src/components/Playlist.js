@@ -26,7 +26,7 @@ export default function Playlist(props){
                 <div className="buttons">
                     <button className="btn">&larr;</button>
                     <div className="button-play-pause">
-                        <span className={status === "Paused..." ? "paused" : "playing"} onClick={handleOnPlayPauseClick}>CLICK</span>
+                        <span className={status === "Paused..." ? "paused" : "playing"} onClick={handleOnPlayPauseClick}></span>
                     </div>
                     <button className="btn">&rarr;</button>
                 </div>
