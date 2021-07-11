@@ -1,10 +1,20 @@
+import { useState } from "react"
 import Track from "./Track"
 
 export default function Playlist(props){
+    const [status, setStatus ] = useState("Paused...")
+
+    const handleOnPlayPauseClick = () => {
+        if (status === "Paused..."){
+            setStatus("Playing...")
+        }else if (status === "Playing...") {
+            setStatus("Paused...")
+        }
+    }
     return (
         <div className="playlist">
             <div className="info">
-                <span className ="status">Paused...</span>
+                <span className ="status">{status}</span>
                 <p className="title">{props.playlist.name}</p>
             </div>
 
@@ -15,6 +25,9 @@ export default function Playlist(props){
 
                 <div className="buttons">
                     <button className="btn">&larr;</button>
+                    <div className="button-play-pause">
+                        <span className={status === "Paused..." ? "paused" : "playing"} onClick={handleOnPlayPauseClick}>CLICK</span>
+                    </div>
                     <button className="btn">&rarr;</button>
                 </div>
             </div>
