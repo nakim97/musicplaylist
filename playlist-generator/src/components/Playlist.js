@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Track from "./Track"
+import AddTrack from "./AddTrack"
 
 export default function Playlist(props){
     const [status, setStatus ] = useState("Paused...")
@@ -81,6 +82,8 @@ export default function Playlist(props){
                     <Track song={song} position ={idx + 1} onTrackClick={handleOnTrackClick}/>
                 ))}
             </ul>
+
+            <AddTrack />
         </div>
     )
 }

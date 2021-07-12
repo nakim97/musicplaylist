@@ -129,3 +129,27 @@ ul.tracks {
   margin-left: auto;
   color: black;
 }
+
+.add-track-form{
+  margin-top:20px;
+}
+.add-track-form h2{
+  margin: 10px 0;
+}
+.add-track-form .form-input{
+  display:flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+.add-track-form input{
+  padding: 8px 12px;
+  border-radius: 8px;
+  border:none;
+}
+.add-track-form .submit{
+  font-size: 24px;
+  padding:10px 20px;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-top: 10px;
+}
