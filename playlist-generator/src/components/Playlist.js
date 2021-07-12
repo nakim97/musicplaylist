@@ -83,7 +83,7 @@ export default function Playlist(props){
                 ))}
             </ul>
 
-            <AddTrack />
+            <AddTrack  addSong={props.addSong}/>
         </div>
     )
 }

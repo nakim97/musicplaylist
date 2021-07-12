@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react'
 import Playlist from './components/Playlist';
 const data = {
   name: "Classic Disney Movie Songs - Top 10",
@@ -38,10 +39,18 @@ const data = {
 }
 
 function App({ user ="Poot" }) {
+  const [playlistName, setPlaylistName] = useState(data.name)
+  const [songs, setSongs] = useState(data.songs)
+
+  const addSong = (newSong) => {
+    setSongs(currentSongs => [...currentSongs, newSong])
+  }
+
+  const playlist = { name: playlistName, songs: songs }
   return (
     <div className="App">
       <h1>{user}'s Playlist </h1>
-      <Playlist playlist={data}/>
+      <Playlist playlist={playlist} addSong={addSong}/>
     </div>
   );
 }

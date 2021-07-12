@@ -1,6 +1,9 @@
 import { useState } from "react"
 
-export default function AddTrack(){
+
+const formatter = new Intl.NumberFormat("en-us", { minimumIntegerDigits:2 })
+
+export default function AddTrack(props){
     const [form, setForm] = useState({
         songName: "",
         movieTitle: "",
@@ -9,6 +12,23 @@ export default function AddTrack(){
     const handleOnInputChange = (event) => {
         setForm({ ...form, [event.target.name]: event.target.value})
         
+    }
+
+    const handleOnSubmit = () => {
+        const minutes = Math.floor(Number(form.duration) / 60)
+        const seconds = Number(form.duration) % 60
+
+        const newSong = {
+            songName: form.songName,
+            movieTitle: form.movieTitle,
+            duration: `${minutes}:${formatter.format(seconds)}`,
+        }
+        props.addSong(newSong)
+        setForm({
+            songName: "",
+            movieTitle: "",
+            duration: "",
+        })
     }
     return(
         <div className="add-track-form">
@@ -29,7 +49,7 @@ export default function AddTrack(){
                 <input name="duration" type="number" value={form.duration} onChange={handleOnInputChange}/>
             </div>
 
-            <button className="btn submit">Save</button>
+            <button className="btn submit" onClick={handleOnSubmit}>Save</button>
         </div>
     )
 }
