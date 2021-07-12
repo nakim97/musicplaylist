@@ -3,7 +3,7 @@ import Track from "./Track"
 
 export default function Playlist(props){
     const [status, setStatus ] = useState("Paused...")
-    const [currentSongIdx, setCurrentSongIdx] = useState(0)
+    const [currentSongIdx, setCurrentSongIdx] = useState(null)
 
     const handleOnPlayPauseClick = () => {
         if (status === "Paused..."){
@@ -11,6 +11,32 @@ export default function Playlist(props){
         }else if (status === "Playing...") {
             setStatus("Paused...")
         }
+    }
+
+    const handleOnNextSongClick = () => {
+        if(!currentSongIdx && currentSongIdx !==0){
+            setCurrentSongIdx(0)
+        }else{
+            let nextSongIdx = currentSongIdx +1
+            if (nextSongIdx >= props.playlist.songs.length){
+                nextSongIdx =0
+            }
+            setCurrentSongIdx(nextSongIdx)
+        }
+        setStatus("Playing...")
+    }
+
+    const handleOnPrevSongClick= () => {
+        if(!currentSongIdx && currentSongIdx !==0){
+            setCurrentSongIdx(0)
+        }else{
+            let nextSongIdx = currentSongIdx -1
+            if (nextSongIdx < 0){
+                nextSongIdx = props.playlist.songs.length -1
+            }
+            setCurrentSongIdx(nextSongIdx)
+        }
+        setStatus("Playing...")
     }
 
     const handleOnTrackClick = (idx) => {
@@ -32,11 +58,11 @@ export default function Playlist(props){
                 </div>
 
                 <div className="buttons">
-                    <button className="btn">&larr;</button>
+                    <button className="btn" onClick={handleOnPrevSongClick}>&larr;</button>
                     <div className="button-play-pause">
                         <span className={status === "Paused..." ? "paused" : "playing"} onClick={handleOnPlayPauseClick}></span>
                     </div>
-                    <button className="btn">&rarr;</button>
+                    <button className="btn" onClick={handleOnNextSongClick}>&rarr;</button>
                 </div>
 
                 <div className="current-song">
