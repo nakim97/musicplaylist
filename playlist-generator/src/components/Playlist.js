@@ -13,6 +13,11 @@ export default function Playlist(props){
         }
     }
 
+    const handleOnTrackClick = (idx) => {
+        setCurrentSongIdx(idx)
+        setStatus("Playing...")
+    }
+
     const activeTrack = Boolean(currentSongIdx) || currentSongIdx === 0 ? props.playlist.songs[currentSongIdx] : null
     return (
         <div className="playlist">
@@ -47,7 +52,7 @@ export default function Playlist(props){
 
             <ul className="tracks">
                 {props.playlist.songs.map((song,idx) => (
-                    <Track song={song} position ={idx + 1} />
+                    <Track song={song} position ={idx + 1} onTrackClick={handleOnTrackClick}/>
                 ))}
             </ul>
         </div>

@@ -1,6 +1,6 @@
 export default function Track(props){
     return (
-        <li className="song">
+        <li className="song" onClick={() => props.onTrackClick(props.position -1)}>
             <span className="position">{props.position}.</span>
             <span className="title">
                 <span>{props.song.songName}</span>
